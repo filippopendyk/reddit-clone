@@ -4,11 +4,13 @@ import { Route, Routes } from 'react-router';
 import Error from './pages/Error';
 import Post from './pages/Post';
 import Feed from './pages/Feed';
+import SideBar from './components/SideBar/SideBar';
+import './App.css';
 
 export function App() {
   return (
     <div className='app'>
-      {/* <SideBar/> */}
+      <SideBar/>
       <Routes>
         <Route index element={<Feed/>}/>
         <Route path=':category' element={<Feed/>}>
