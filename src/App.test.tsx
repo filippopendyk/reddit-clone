@@ -5,7 +5,7 @@ import { describe, it } from 'vitest';
 import { WrappedApp, App } from './App';
 
 describe('App', () => {
-    it('Renders Home category, if not category is provided', () => {
+    it('Renders Home category, if no category is provided', () => {
         render(
             <MemoryRouter initialEntries={['/']}>
                 <App/>
