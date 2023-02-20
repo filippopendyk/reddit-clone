@@ -6,7 +6,7 @@ import Error from './pages/Error';
 import Post from './pages/Post';
 import Feed from './pages/Feed';
 
-function App() {
+export function App() {
   return (
     <div className='app'>
       {/* <SideBar/> */}
@@ -20,11 +20,10 @@ function App() {
   );
 };
 
-function WrappedApp(){
+export function WrappedApp(){
   return (
     <BrowserRouter>
       <App/>
     </BrowserRouter>
   )
 }
-export default WrappedApp;
