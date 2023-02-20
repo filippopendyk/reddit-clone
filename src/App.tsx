@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
-import Layout from './pages/Layout';
 import Error from './pages/Error';
 import Post from './pages/Post';
 import Feed from './pages/Feed';
@@ -15,6 +14,7 @@ export function App() {
         <Route path=':category' element={<Feed/>}>
           <Route path='post' element={<Post/>}/>
         </Route>
+        <Route path='*' element={<Error/>}/>
       </Routes>
     </div>
   );
