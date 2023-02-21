@@ -52,3 +52,19 @@ h1{
     width: 100%;
     justify-content: center;
 }
+
+.input-form{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 95%;
+    padding: 16px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.input-form input{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+}

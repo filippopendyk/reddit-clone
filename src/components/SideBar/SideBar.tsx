@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import CategoryItem from "../CategoryItem/CategoryItem";
 import { useState } from "react";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import './SideBar.css';
+import '../CategoryItem/CategoryItem.css';
 import { IconContext } from "react-icons";
 
 interface TopCategories {
@@ -11,9 +12,16 @@ interface TopCategories {
 }
 
 const SideBar: React.FC<TopCategories> = ({topCategories}) => {
-    const [sidebar, setSidebar] = useState(false);
 
+    // Showing and hiding sidebar functions
+    const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+
+
+    // Integrating the searchbar with the state
+    const handleSearchBar = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        e.stopPropagation();
+    }
 
     return (
         <>
@@ -33,8 +41,19 @@ const SideBar: React.FC<TopCategories> = ({topCategories}) => {
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
-                    {topCategories.map((navLink, index) => {
-                        return <CategoryItem key={index} categoryName={navLink}/>
+                    <li
+                        className="nav-item"
+                        onClick={e => {
+                        e.stopPropagation();
+                    }}>
+                        <form className="input-form">
+                            <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                        </form>
+                    </li>
+                    {topCategories.map((navLink, index): JSX.Element => {
+                        return (
+                        <CategoryItem key={index} categoryName={navLink}/>
+                        )
                     })}
                 </ul>
             </nav>
