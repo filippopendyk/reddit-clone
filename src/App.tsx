@@ -6,11 +6,12 @@ import Post from './pages/Post';
 import Feed from './pages/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
+import capitalizedNavLinks from './components/SideBar/SideBarMockData';
 
 export function App() {
   return (
     <div className='app'>
-      <SideBar/>
+      <SideBar topCategories={capitalizedNavLinks}/>
       <Routes>
         <Route index element={<Feed/>}/>
         <Route path=':category' element={<Feed/>}>

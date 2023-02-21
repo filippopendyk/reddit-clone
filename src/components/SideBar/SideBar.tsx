@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import CategoryItem from "../CategoryItem/CategoryItem";
-import navLinks from "./SideBarMockData";
 import { useState } from "react";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import './SideBar.css';
 import { IconContext } from "react-icons";
 
-const SideBar: React.FC = () => {
+interface TopCategories {
+    topCategories: string[]
+}
+
+const SideBar: React.FC<TopCategories> = ({topCategories}) => {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -30,8 +33,8 @@ const SideBar: React.FC = () => {
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
-                    {navLinks.map(navLink => {
-                        return <CategoryItem categoryName={navLink}/>
+                    {topCategories.map((navLink, index) => {
+                        return <CategoryItem key={index} categoryName={navLink}/>
                     })}
                 </ul>
             </nav>

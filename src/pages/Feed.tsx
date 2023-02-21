@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Feed: React.FC = () => {
     let { category } = useParams();

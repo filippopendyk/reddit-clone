@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './CategoryItem.css';
 import { BiCategory, BiHomeAlt } from 'react-icons/bi';
 
-interface Props {
+type Props = {
     categoryName: string;
 }
 
