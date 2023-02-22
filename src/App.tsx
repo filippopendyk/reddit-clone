@@ -7,19 +7,23 @@ import Feed from './pages/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
 import capitalizedNavLinks from './components/SideBar/SideBarMockData';
+import { Provider } from 'react-redux';
+import store from './store';
 
 export function App() {
   return (
-    <div className='app'>
-      <SideBar topCategories={capitalizedNavLinks}/>
-      <Routes>
-        <Route index element={<Feed/>}/>
-        <Route path=':category' element={<Feed/>}>
-          <Route path='post' element={<Post/>}/>
-        </Route>
-        <Route path='*' element={<Error/>}/>
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className='app'>
+        <SideBar topCategories={capitalizedNavLinks}/>
+        <Routes>
+          <Route index element={<Feed/>}/>
+          <Route path=':category' element={<Feed/>}>
+            <Route path='post' element={<Post/>}/>
+          </Route>
+          <Route path='*' element={<Error/>}/>
+        </Routes>
+      </div>
+    </Provider>
   );
 };
 
