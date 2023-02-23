@@ -15,12 +15,15 @@
 
 .nav-menu {
     background-color: #060b26;
-    width: 250px;
+    width: fit-content;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
     left: -100%;
     transition: 850ms;
 }
@@ -32,6 +35,7 @@
 
 .nav-menu-items {
     width: 100%;
+    position: relative;
 }
 
 .navbar-toggle{
@@ -67,4 +71,8 @@ h1{
     width: 100%;
     padding: 0.5rem;
     border-radius: 4px;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
