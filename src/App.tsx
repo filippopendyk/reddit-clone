@@ -6,11 +6,18 @@ import Post from './pages/Post';
 import Feed from './pages/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
-import capitalizedNavLinks from './components/SideBar/SideBarMockData';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import store from './store';
+import { selectCategories } from './features/topCategories/topCategoriesSlice';
+import capitalizedNavLinks from './components/SideBar/SideBarMockData';
+import { useAppSelector } from './hooks';
+
+type TopCategory = {
+  topCategory: string;
+}
 
 export function App() {
+
   return (
     <Provider store={store}>
       <div className='app'>

@@ -1,20 +1,21 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { build } from "vite";
 
-interface RedditCategory {
-    name: string;
-}
-
-interface RedditApiResponse {
+type RedditApiResponse = {
     data: {
         children: {
-            data: RedditCategory;
+            data: {
+                display_name: TopCategory;
+            }
         }[];
     };
 }
 
-interface FetchMostPopularCategoriesPayload {
-    categories: RedditCategory[];
+type TopCategory = {
+    topCategory: string;
+}
+
+type FetchMostPopularCategoriesPayload = {
+    categories: TopCategory[];
 }
 
 export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCategoriesPayload, void, {}>(
@@ -25,7 +26,8 @@ export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCateg
             const data: RedditApiResponse = await response.json();
             
             //Parse the response data
-            const categories = data.data.children.map((child) => child.data);
+            const categories = data.data.children.map((child) => child.data.display_name);
+            console.log(categories);
 
             return { categories };
         } catch (err) {
@@ -34,10 +36,10 @@ export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCateg
     }
 );
 
-interface TopCategoriesState {
+type TopCategoriesState = {
     loading: boolean;
     error: string | undefined;
-    data: RedditCategory[];
+    data: TopCategory[];
 }
 
 const initialState: TopCategoriesState = {
@@ -61,11 +63,13 @@ const topCategoriesSlice = createSlice({
         });
         builder.addCase(fetchMostPopularCategories.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.error.message || 'Something went wrong';
         })
     }
 })
 
-// Export the topCategories slice and the fetchTopCategories async thunk
+// Export the topCategories slice and selector
 
 export const { reducer: topCategoriesReducer } = topCategoriesSlice;
+
+export const selectCategories = (state: TopCategoriesState): TopCategory[] => state.data;

@@ -6,9 +6,16 @@ import * as AiIcons from 'react-icons/ai';
 import './SideBar.css';
 import '../CategoryItem/CategoryItem.css';
 import { IconContext } from "react-icons";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useEffect } from "react";
+import { fetchMostPopularCategories } from "../../features/topCategories/topCategoriesSlice";
 
-interface TopCategories {
+type TopCategories = {
     topCategories: string[]
+}
+
+type TopCategory = {
+    topCategory: string
 }
 
 const SideBar: React.FC<TopCategories> = ({topCategories}) => {
@@ -22,6 +29,7 @@ const SideBar: React.FC<TopCategories> = ({topCategories}) => {
     const handleSearchBar = (e: React.ChangeEvent<HTMLInputElement>): void => {
         e.stopPropagation();
     }
+    
 
     return (
         <>
