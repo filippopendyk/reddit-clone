@@ -10,12 +10,12 @@ import { Provider, useSelector } from 'react-redux';
 import store from './store';
 import capitalizedNavLinks from './components/SideBar/SideBarMockData';
 import { useAppSelector } from './hooks';
-
+import capitalizeWords from './utils/capitalizeWords';
 
 
 export function App() {
 
-  const topCategories: string[] = useAppSelector((state) => state.topCategories.data);
+  const topCategories: string[] = capitalizeWords(useAppSelector((state) => state.topCategories.data));
 
   return (
       <div className='app'>
