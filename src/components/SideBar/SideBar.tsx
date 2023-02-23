@@ -10,15 +10,11 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useEffect } from "react";
 import { fetchMostPopularCategories } from "../../features/topCategories/topCategoriesSlice";
 
-type TopCategories = {
-    topCategories: string[]
+type Props = {
+    topCategories: string[];
 }
 
-type TopCategory = {
-    topCategory: string
-}
-
-const SideBar: React.FC<TopCategories> = ({topCategories}) => {
+const SideBar: React.FC<Props> = ({topCategories}) => {
 
     // Showing and hiding sidebar functions
     const [sidebar, setSidebar] = useState(false);
@@ -58,9 +54,9 @@ const SideBar: React.FC<TopCategories> = ({topCategories}) => {
                             <input type="text" placeholder="Search" onChange={handleSearchBar}/>
                         </form>
                     </li>
-                    {topCategories.map((navLink, index): JSX.Element => {
+                    {topCategories.map((topCategory, index): JSX.Element => {
                         return (
-                        <CategoryItem key={index} categoryName={navLink}/>
+                        <CategoryItem key={index} topCategory={topCategory}/>
                         )
                     })}
                 </ul>

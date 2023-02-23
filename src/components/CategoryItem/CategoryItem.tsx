@@ -4,13 +4,13 @@ import './CategoryItem.css';
 import { BiCategory, BiHomeAlt } from 'react-icons/bi';
 
 type Props = {
-    categoryName: string;
+    topCategory: string;
 }
 
-const CategoryItem: React.FC<Props> = ({categoryName}) => {
-    const categoryPath = `${categoryName}`
+const CategoryItem: React.FC<Props> = ({topCategory}) => {
+    const categoryPath = `${topCategory}`
 
-    if(categoryName === 'Home' || categoryName === 'home'){
+    if(topCategory === 'Home' || topCategory  === 'home'){
         return (
             <li className="nav-item">
                 <Link to='/' className='menu-bars'>
@@ -23,9 +23,9 @@ const CategoryItem: React.FC<Props> = ({categoryName}) => {
 
     return (
         <li className="nav-item">
-            <Link to={categoryName} className='menu-bars'>
+            <Link to={categoryPath} className='menu-bars'>
                 <BiCategory/>
-                <span>{categoryName}</span>
+                <span>{topCategory}</span>
             </Link>
         </li>
     )

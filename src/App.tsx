@@ -8,20 +8,18 @@ import SideBar from './components/SideBar/SideBar';
 import './App.css';
 import { Provider, useSelector } from 'react-redux';
 import store from './store';
-import { selectCategories } from './features/topCategories/topCategoriesSlice';
 import capitalizedNavLinks from './components/SideBar/SideBarMockData';
 import { useAppSelector } from './hooks';
 
-type TopCategory = {
-  topCategory: string;
-}
+
 
 export function App() {
 
+  const topCategories: string[] = useAppSelector((state) => state.topCategories.data);
+
   return (
-    <Provider store={store}>
       <div className='app'>
-        <SideBar topCategories={capitalizedNavLinks}/>
+        <SideBar topCategories={topCategories}/>
         <Routes>
           <Route index element={<Feed/>}/>
           <Route path=':category' element={<Feed/>}>
@@ -30,14 +28,15 @@ export function App() {
           <Route path='*' element={<Error/>}/>
         </Routes>
       </div>
-    </Provider>
   );
 };
 
 export function WrappedApp(){
   return (
     <BrowserRouter>
-      <App/>
+      <Provider store={store}>
+        <App/>
+      </Provider>
     </BrowserRouter>
   )
 }

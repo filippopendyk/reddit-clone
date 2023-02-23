@@ -4,18 +4,14 @@ type RedditApiResponse = {
     data: {
         children: {
             data: {
-                display_name: TopCategory;
+                display_name: string;
             }
         }[];
     };
 }
 
-type TopCategory = {
-    topCategory: string;
-}
-
 type FetchMostPopularCategoriesPayload = {
-    categories: TopCategory[];
+    categories: string[];
 }
 
 export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCategoriesPayload, void, {}>(
@@ -39,7 +35,7 @@ export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCateg
 type TopCategoriesState = {
     loading: boolean;
     error: string | undefined;
-    data: TopCategory[];
+    data: string[];
 }
 
 const initialState: TopCategoriesState = {
@@ -71,5 +67,3 @@ const topCategoriesSlice = createSlice({
 // Export the topCategories slice and selector
 
 export const { reducer: topCategoriesReducer } = topCategoriesSlice;
-
-export const selectCategories = (state: TopCategoriesState): TopCategory[] => state.data;
