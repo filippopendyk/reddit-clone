@@ -1,14 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
-
+import store from './store';
 import { WrappedApp, App } from './App';
 
 describe('App', () => {
     it('Renders Home category, if no category is provided', () => {
         render(
             <MemoryRouter initialEntries={['/']}>
-                <App/>
+                <Provider store={store}>
+                    <App/>
+                </Provider>
             </MemoryRouter>
         );
 
@@ -22,7 +25,9 @@ describe('App', () => {
     it('Renders provided category', () => {
         render(
             <MemoryRouter initialEntries={['/example']}>
-                <App/>
+                <Provider store={store}>
+                    <App/>
+                </Provider>
             </MemoryRouter>
         );
 
