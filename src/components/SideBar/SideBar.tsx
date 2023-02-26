@@ -12,10 +12,12 @@ import { fetchMostPopularCategories } from "../../features/topCategories/topCate
 
 type Props = {
     topCategories: string[];
+    isLoading: boolean;
+    error: string | null;
 }
 
-const SideBar: React.FC<Props> = ({topCategories}) => {
-
+const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
+    
     // Showing and hiding sidebar functions
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
@@ -26,41 +28,124 @@ const SideBar: React.FC<Props> = ({topCategories}) => {
         e.stopPropagation();
     }
     
+    // Returns "Loading categories when they are being loaded"
+
+    if(isLoading){
+        return (
+            <>
+                <IconContext.Provider value={{color: '#fff'}}>
+                    <div className="navbar">
+                        <Link to='#' className='menu-bars'>
+                            <FaIcons.FaBars data-testid='open-btn'onClick={showSidebar}/>
+                        </Link>
+                        <div className="header-container">
+                            <h1>Popditt</h1>
+                        </div>
+                    </div>
+                    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} data-testid='nav-menu'>
+                        <ul className='nav-menu-items' onClick={showSidebar}>
+                            <li className="navbar-toggle">
+                                <Link to="#" data-testid='close-btn' className='menu-bars'>
+                                    <AiIcons.AiOutlineClose />
+                                </Link>
+                            </li>
+                            <li
+                                className="nav-item"
+                                onClick={e => {
+                                e.stopPropagation();
+                            }}>
+                                <form className="input-form">
+                                    <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                                </form>
+                            </li>
+                            <li>
+                            <p>Loading categories...</p> 
+                            </li>
+                        </ul>
+                    </nav>
+                </IconContext.Provider>
+            </>
+        )
+    }
+
+    // Returns the sidebar with error message if app wasnt able to load the categories
+
+    if(error){
+        return (
+            <>
+                <IconContext.Provider value={{color: '#fff'}}>
+                    <div className="navbar">
+                        <Link to='#' data-testid='open-btn' className='menu-bars'>
+                            <FaIcons.FaBars onClick={showSidebar}/>
+                        </Link>
+                        <div className="header-container">
+                            <h1>Popditt</h1>
+                        </div>
+                    </div>
+                    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} data-testid='nav-menu'>
+                        <ul className='nav-menu-items' onClick={showSidebar}>
+                            <li className="navbar-toggle">
+                                <Link to="#" data-testid='close-btn' className='menu-bars'>
+                                    <AiIcons.AiOutlineClose/>
+                                </Link>
+                            </li>
+                            <li
+                                className="nav-item"
+                                onClick={e => {
+                                e.stopPropagation();
+                            }}>
+                                <form className="input-form">
+                                    <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                                </form>
+                            </li>
+                            <li>
+                            <p>Error while loading categories! Try again.</p>
+                            <p>Error: {error}</p> 
+                            </li>
+                        </ul>
+                    </nav>
+                </IconContext.Provider>
+            </>
+        )
+    }
+
+    // Returns sidebar with top categories mapped when loaded succesfully and no error is present
 
     return (
         <>
             <IconContext.Provider value={{color: '#fff'}}>
-            <div className="navbar">
-                <Link to='#' className='menu-bars'>
-                    <FaIcons.FaBars onClick={showSidebar}/>
-                </Link>
-                <div className="header-container">
-                    <h1>Popditt</h1>
+                <div className="navbar">
+                    <Link to='#' data-testid='open-btn' className='menu-bars'>
+                        <FaIcons.FaBars onClick={showSidebar}/>
+                    </Link>
+                    <div className="header-container">
+                        <h1>Popditt</h1>
+                    </div>
                 </div>
-            </div>
-            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                <ul className='nav-menu-items' onClick={showSidebar}>
-                    <li className="navbar-toggle">
-                        <Link to="#" className='menu-bars'>
-                            <AiIcons.AiOutlineClose />
-                        </Link>
-                    </li>
-                    <li
-                        className="nav-item"
-                        onClick={e => {
-                        e.stopPropagation();
-                    }}>
-                        <form className="input-form">
-                            <input type="text" placeholder="Search" onChange={handleSearchBar}/>
-                        </form>
-                    </li>
-                    {topCategories.map((topCategory, index): JSX.Element => {
-                        return (
-                        <CategoryItem key={index} topCategory={topCategory}/>
-                        )
-                    })}
-                </ul>
-            </nav>
+                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} data-testid='nav-menu'>
+                    <ul className='nav-menu-items' onClick={showSidebar}>
+                        <li className="navbar-toggle">
+                            <Link to="#" data-testid='close-btn' className='menu-bars'>
+                                <AiIcons.AiOutlineClose/>
+                            </Link>
+                        </li>
+                        <li
+                            className="nav-item"
+                            onClick={e => {
+                            e.stopPropagation();
+                        }}>
+                            <form className="input-form">
+                                <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                            </form>
+                        </li>
+                        {    
+                        topCategories.map((topCategory, index): JSX.Element => {
+                            return (
+                            <CategoryItem key={index} topCategory={topCategory}/>
+                            )
+                        })}
+                    </ul>
+                </nav>
             </IconContext.Provider>
         </>
     )

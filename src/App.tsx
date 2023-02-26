@@ -15,11 +15,15 @@ import capitalizeWords from './utils/capitalizeWords';
 
 export function App() {
 
+  // Loads the data for sidebar from topCategories slice.
+
   const topCategories: string[] = capitalizeWords(useAppSelector((state) => state.topCategories.data));
+  const isLoading: boolean = useAppSelector((state) => state.topCategories.isLoading);
+  const error: string | null = useAppSelector((state) => state.topCategories.error);
 
   return (
       <div className='app'>
-        <SideBar topCategories={topCategories}/>
+        <SideBar topCategories={topCategories} isLoading={isLoading} error={error}/>
         <Routes>
           <Route index element={<Feed/>}/>
           <Route path=':category' element={<Feed/>}>

@@ -36,5 +36,5 @@ describe('App', () => {
                 level: 2,
             })
         ).toHaveTextContent('example');
-    })
+    });
 });

@@ -33,14 +33,14 @@ export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCateg
 );
 
 type TopCategoriesState = {
-    loading: boolean;
-    error: string | undefined;
+    isLoading: boolean;
+    error: string | null;
     data: string[];
 }
 
 const initialState: TopCategoriesState = {
-    loading: false,
-    error: undefined,
+    isLoading: false,
+    error: null,
     data: [],
 }
 
@@ -50,15 +50,15 @@ const topCategoriesSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchMostPopularCategories.pending, (state) => {
-            state.loading = true;
-            state.error = undefined;
+            state.isLoading = true;
+            state.error = null;
         });
         builder.addCase(fetchMostPopularCategories.fulfilled, (state, action: PayloadAction<FetchMostPopularCategoriesPayload>) => {
-            state.loading = false;
+            state.isLoading = false;
             state.data = action.payload.categories;
         });
         builder.addCase(fetchMostPopularCategories.rejected, (state, action) => {
-            state.loading = false;
+            state.isLoading = false;
             state.error = action.error.message || 'Something went wrong';
         })
     }
