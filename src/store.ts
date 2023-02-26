@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { fetchMostPopularCategories, topCategoriesReducer } from "./features/topCategories/topCategoriesSlice";
-import topicSlice from "./features/topic/topicSlice";
 
 const store = configureStore({
     reducer: {
         topCategories: topCategoriesReducer,
-        topic: topicSlice,
     },
 });
 
