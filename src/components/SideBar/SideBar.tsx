@@ -9,6 +9,8 @@ import { IconContext } from "react-icons";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useEffect } from "react";
 import { fetchMostPopularCategories } from "../../features/topCategories/topCategoriesSlice";
+import { setTopicAs } from "../../features/topic/topicSlice";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     topCategories: string[];
@@ -20,12 +22,18 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
     
     // Showing and hiding sidebar functions
     const [sidebar, setSidebar] = useState(false);
+    const [value, setValue] = useState("");
+
     const showSidebar = () => setSidebar(!sidebar);
 
-
     // Integrating the searchbar with the state
+    const navigate = useNavigate();
+
     const handleSearchBar = (e: React.ChangeEvent<HTMLInputElement>): void => {
         e.stopPropagation();
+        let newRoute = "/" + value;
+        navigate(newRoute);
+        setValue("");
     }
     
     // Returns "Loading categories when they are being loaded"
@@ -55,7 +63,7 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                                 e.stopPropagation();
                             }}>
                                 <form className="input-form">
-                                    <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                                    <input type="text" placeholder="Search" onChange={handleSearchBar} />
                                 </form>
                             </li>
                             <li>
@@ -95,7 +103,7 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                                 e.stopPropagation();
                             }}>
                                 <form className="input-form">
-                                    <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                                    <input type="text" placeholder="Search" onChange={handleSearchBar} />
                                 </form>
                             </li>
                             <li>
@@ -135,7 +143,7 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                             e.stopPropagation();
                         }}>
                             <form className="input-form">
-                                <input type="text" placeholder="Search" onChange={handleSearchBar}/>
+                                <input type="text" placeholder="Search" onChange={handleSearchBar} />
                             </form>
                         </li>
                         {    
