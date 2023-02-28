@@ -28,5 +28,5 @@ describe('CategoryItem', () => {
         expect(listItem).toBeInTheDocument();
 
         expect(listItem).toHaveTextContent(providedCategory);
-    })
+    });
 })
