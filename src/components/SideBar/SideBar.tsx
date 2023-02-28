@@ -1,4 +1,4 @@
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CategoryItem from "../CategoryItem/CategoryItem";
 import { useState } from "react";
 import * as FaIcons from 'react-icons/fa';
@@ -6,10 +6,6 @@ import * as AiIcons from 'react-icons/ai';
 import './SideBar.css';
 import '../CategoryItem/CategoryItem.css';
 import { IconContext } from "react-icons";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { useEffect } from "react";
-import { fetchMostPopularCategories } from "../../features/topCategories/topCategoriesSlice";
-import { setTopicAs } from "../../features/topic/topicSlice";
 import { useNavigate } from "react-router-dom";
 
 type Props = {

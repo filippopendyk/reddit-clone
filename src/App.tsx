@@ -6,9 +6,8 @@ import Post from './pages/Post';
 import Feed from './pages/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store';
-import capitalizedNavLinks from './components/SideBar/SideBarMockData';
 import { useAppSelector } from './hooks';
 import capitalizeWords from './utils/capitalizeWords';
 
