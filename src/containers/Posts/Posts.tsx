@@ -12,16 +12,14 @@ type Props = {
 
 const Posts: React.FC<Props> = ({isLoading, error, data}) => {
 
-    if(isLoading){
-        return <LoadingComp/>
-    }
-
-    if(error){
-        return <ErrorComp error={error}/>
-    }
-
     return (
-        <PostsDisplayer posts={data}/>
+        <div className="posts-container">
+            {
+                isLoading ? <LoadingComp/>
+                : error ? <ErrorComp error={error}/>
+                : <PostsDisplayer posts={data} />
+            }
+        </div>
     )
 }
 

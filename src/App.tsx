@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
-import Error from './pages/Error';
-import Post from './pages/Post';
-import Feed from './pages/Feed';
+import Error from './pages/Error/Error';
+import Post from './pages/Post/Post';
+import Feed from './pages/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
 import { Provider } from 'react-redux';

@@ -23,7 +23,7 @@ const FilterMenu: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className="filter-menu">
             <button className={filter === 'best' ? 'activeFilter' : undefined} onClick={handleBest}>Best</button>
             <button className={filter === 'top' ? 'activeFilter' : undefined} onClick={handleTop}>Top</button>
             <button className={filter === 'new' ? 'activeFilter' : undefined} onClick={handleNew}>New</button>
