@@ -29,4 +29,4 @@ const filterSlice = createSlice({
 
 export const { setFilterAsBest, setFilterAsDefault, setFilterAsNew, setFilterAsTop} = filterSlice.actions;
 
-export default filterSlice.reducer;
+export const { reducer: filterSliceReducer } = filterSlice; 
