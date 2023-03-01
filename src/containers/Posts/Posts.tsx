@@ -4,8 +4,13 @@ import LoadingComp from "../../components/LoadingComp/LoadingComp";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
 import PostsDisplayer from "../../components/PostsDisplayer/PostsDisplayer";
 
-const Posts: React.FC = () => {
-    const { data, isLoading, error } = useAppSelector((state) => state.posts);
+type Props = {
+    data: {}[];
+    isLoading: boolean;
+    error: string | null;
+}
+
+const Posts: React.FC<Props> = ({isLoading, error, data}) => {
 
     if(isLoading){
         return <LoadingComp/>
