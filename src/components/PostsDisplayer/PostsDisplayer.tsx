@@ -1,14 +1,17 @@
+import getFilterString from "../../utils/getFilterString";
+
 type Props = {
     posts: {}[];
+    filter: string;
 }
 
-const PostsDisplayer: React.FC<Props> = ({posts}) => {    
+const PostsDisplayer: React.FC<Props> = ({posts, filter}) => {    
     let filteredPosts: {}[];
 
     
 
     return (
-        <h4>This is filter posts component</h4>
+        <h4>You are currently displaying {getFilterString(filter)}</h4>
     )
 }
 
