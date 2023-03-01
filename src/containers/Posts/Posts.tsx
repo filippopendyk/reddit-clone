@@ -6,7 +6,7 @@ type Props = {
 }
 
 const Posts: React.FC<Props> = ({topic}) => {
-
+    const { data, isLoading, error } = useAppSelector((state) => state.posts);
 
 
     return (
