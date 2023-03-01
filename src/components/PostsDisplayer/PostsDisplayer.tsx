@@ -2,8 +2,7 @@ type Props = {
     posts: {}[];
 }
 
-const PostsDisplayer: React.FC<Props> = ({posts}) => {
-    
+const PostsDisplayer: React.FC<Props> = ({posts}) => {    
     let filteredPosts: {}[];
 
     
