@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useEffect } from "react";
 import LoadingComp from "../../components/LoadingComp/LoadingComp";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
-
+import PostsDisplayer from "../../components/PostsDisplayer/PostsDisplayer";
 
 const Posts: React.FC = () => {
     const { data, isLoading, error } = useAppSelector((state) => state.posts);
@@ -16,7 +16,7 @@ const Posts: React.FC = () => {
     }
 
     return (
-        <h3>Loaded posts!</h3>
+        <PostsDisplayer posts={data}/>
     )
 }
 
