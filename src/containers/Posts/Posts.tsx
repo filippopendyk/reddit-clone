@@ -3,11 +3,8 @@ import { useEffect } from "react";
 import LoadingComp from "../../components/LoadingComp/LoadingComp";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
 
-type Props = {
-    topic: string | undefined;
-}
 
-const Posts: React.FC<Props> = ({topic}) => {
+const Posts: React.FC = () => {
     const { data, isLoading, error } = useAppSelector((state) => state.posts);
 
     if(isLoading){
@@ -19,7 +16,7 @@ const Posts: React.FC<Props> = ({topic}) => {
     }
 
     return (
-        <h3>This is Posts container about {topic ? topic : 'Home'}</h3>
+        <h3>Loaded posts!</h3>
     )
 }
 

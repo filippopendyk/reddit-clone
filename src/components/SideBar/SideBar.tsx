@@ -25,13 +25,15 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
     // Integrating the searchbar with the state
     const navigate = useNavigate();
 
-    const handleSearchBar = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        e.stopPropagation();
-        let newRoute = "/" + value;
-        navigate(newRoute);
-        setValue("");
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setValue(e.target.value);
     }
-    
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        navigate('/' + value);
+        setValue('');
+    }    
     // Returns "Loading categories when they are being loaded"
 
     if(isLoading){
@@ -58,8 +60,8 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                                 onClick={e => {
                                 e.stopPropagation();
                             }}>
-                                <form className="input-form">
-                                    <input type="text" placeholder="Search" onChange={handleSearchBar} />
+                                <form className="input-form" onSubmit={handleSubmit}>
+                                    <input type="text" placeholder="Search" onChange={handleChange} value={value}/>
                                 </form>
                             </li>
                             <li>
@@ -98,8 +100,8 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                                 onClick={e => {
                                 e.stopPropagation();
                             }}>
-                                <form className="input-form">
-                                    <input type="text" placeholder="Search" onChange={handleSearchBar} />
+                                <form className="input-form" onSubmit={handleSubmit}>
+                                    <input type="text" placeholder="Search" onChange={handleChange} value={value}/>
                                 </form>
                             </li>
                             <li>
@@ -138,8 +140,8 @@ const SideBar: React.FC<Props> = ({topCategories, isLoading, error}) => {
                             onClick={e => {
                             e.stopPropagation();
                         }}>
-                            <form className="input-form">
-                                <input type="text" placeholder="Search" onChange={handleSearchBar} />
+                            <form className="input-form" onSubmit={handleSubmit}>
+                                <input type="text" placeholder="Search" onChange={handleChange} value={value}/>
                             </form>
                         </li>
                         {    

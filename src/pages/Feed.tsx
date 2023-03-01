@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../hooks";
 import { fetchPosts } from "../features/posts/postsSlice";
+import Posts from "../containers/Posts/Posts";
 
 const Feed: React.FC = () => {
     let { category } = useParams();
@@ -13,7 +14,7 @@ const Feed: React.FC = () => {
         dispatch(fetchPosts(topic));
     },[category]);
 
-    return <h2>This is feed component with {category ? category : 'Home'} category!</h2>
+    return <Posts/>
 }
 
 

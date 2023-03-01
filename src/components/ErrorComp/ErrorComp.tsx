@@ -4,7 +4,7 @@ type Props = {
 
 const ErrorComp: React.FC<Props> = ({error}) => {
     return <>
-        <h4>Error while loading posts! Try again!</h4>
+        <h3>Error while loading posts! Try again!</h3>
         <p>Reason: {error}</p>
     </>
 }

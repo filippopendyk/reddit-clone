@@ -1,5 +1,5 @@
 const LoadingComp: React.FC = () => {
-    return <h2>Loading posts...</h2>
+    return <h3>Loading posts...</h3>
 }
 
 export default LoadingComp;
