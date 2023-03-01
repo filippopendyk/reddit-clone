@@ -23,7 +23,6 @@ export const fetchMostPopularCategories = createAsyncThunk<FetchMostPopularCateg
             
             //Parse the response data
             const categories = data.data.children.map((child) => child.data.display_name);
-            console.log(categories);
 
             return { categories };
         } catch (err) {

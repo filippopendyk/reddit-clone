@@ -4,13 +4,20 @@ type RedditApiResponse = {
     data: {
         children: {
             data: {
+                ups: number;
+                created: number;
             }
         }[];
     }
 };
 
+export type RedditPost = {
+    ups: number;
+    created: number;
+}
+
 type FetchPostsPayload = {
-    posts: {}[];
+    posts: RedditPost[];
     topic: string;
 }
 
@@ -23,7 +30,6 @@ export const fetchPosts = createAsyncThunk<FetchPostsPayload, string>(
 
             //Parse the response data
             const posts = data.data.children.map((child) => child.data);
-            console.log(posts);
 
             return { posts, topic };
         } catch (err) {
@@ -35,7 +41,7 @@ export const fetchPosts = createAsyncThunk<FetchPostsPayload, string>(
 type PostsState = {
     isLoading: boolean;
     error: string | null;
-    data: {}[];
+    data: RedditPost[];
 }
 
 const initialState: PostsState = {

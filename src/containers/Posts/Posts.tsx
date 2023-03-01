@@ -2,10 +2,12 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useEffect } from "react";
 import LoadingComp from "../../components/LoadingComp/LoadingComp";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
-import PostsDisplayer from "../../components/PostsDisplayer/PostsDisplayer";
+import PostsDisplayer from "../PostsSorting/PostsSorting";
+import PostsSorting from "../PostsSorting/PostsSorting";
+import { RedditPost } from "../../features/posts/postsSlice";
 
 type Props = {
-    data: {}[];
+    data: RedditPost[];
     isLoading: boolean;
     error: string | null;
 }
@@ -19,7 +21,7 @@ const Posts: React.FC<Props> = ({isLoading, error, data}) => {
             {
                 isLoading ? <LoadingComp/>
                 : error ? <ErrorComp error={error}/>
-                : <PostsDisplayer posts={data} filter={filter}/>
+                : <PostsSorting posts={data} filter={filter}/>
             }
         </div>
     )

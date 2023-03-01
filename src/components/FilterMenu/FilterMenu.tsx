@@ -5,8 +5,7 @@ import './FilterMenu.css';
 const FilterMenu: React.FC = () => {
     const filter = useAppSelector((state) => state.filter.filter);
     const dispatch = useAppDispatch();
-    console.log(filter);
-
+    
     const handleBest = (event: React.MouseEvent<HTMLButtonElement>) :void => {
         event.preventDefault();
         dispatch(setFilterAsBest());
