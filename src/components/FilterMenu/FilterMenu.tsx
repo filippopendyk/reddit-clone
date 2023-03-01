@@ -29,4 +29,6 @@ const FilterMenu: React.FC = () => {
             <button className={filter === 'new' ? 'activeClass' : undefined} onClick={handleNew}>New</button>
         </div>
     )
-}
+};
+
+export default FilterMenu;
