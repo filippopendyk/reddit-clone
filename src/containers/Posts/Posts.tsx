@@ -5,6 +5,7 @@ import ErrorComp from "../../components/ErrorComp/ErrorComp";
 import PostsDisplayer from "../PostsSorting/PostsSorting";
 import PostsSorting from "../PostsSorting/PostsSorting";
 import { RedditPost } from "../../features/posts/postsSlice";
+import './Posts.css';
 
 type Props = {
     data: RedditPost[];

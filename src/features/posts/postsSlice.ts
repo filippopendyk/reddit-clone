@@ -6,6 +6,7 @@ type RedditApiResponse = {
             data: {
                 ups: number;
                 created: number;
+                title: string;
             }
         }[];
     }
@@ -14,6 +15,7 @@ type RedditApiResponse = {
 export type RedditPost = {
     ups: number;
     created: number;
+    title: string;
 }
 
 type FetchPostsPayload = {
