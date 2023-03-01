@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchMostPopularCategories } from "../topCategories/topCategoriesSlice";
 
 type RedditApiResponse = {
     data: {
@@ -10,19 +9,23 @@ type RedditApiResponse = {
     }
 };
 
+type FetchPostsPayload = {
+    posts: {}[];
+    topic: string;
+}
 
-export const fetchPosts = createAsyncThunk<FetchPostsPayload>(
-    'posts/fetchPosts', async(topic) => {
+export const fetchPosts = createAsyncThunk<FetchPostsPayload, string>(
+    'posts/fetchPosts', async(topic: string, thunkApi) => {
         try{
             //Fetch posts from specified category
-            const response = await fetch(`https://www.reddit.com/${topic}.json`);
+            const response = await fetch(`https://www.reddit.com/r/${topic}.json`);
             const data: RedditApiResponse = await response.json();
 
             //Parse the response data
             const posts = data.data.children.map((child) => child.data);
             console.log(posts);
 
-            return { posts };
+            return { posts, topic };
         } catch (err) {
             throw new Error('failed to fetch posts');
         }
@@ -39,10 +42,6 @@ const initialState: PostsState = {
     isLoading: false,
     error: null,
     data: [],
-}
-
-type FetchPostsPayload = {
-    posts: {}[];
 }
 
 const postsSlice = createSlice({
