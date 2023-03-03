@@ -1,5 +1,5 @@
 import { RedditPost } from "../../features/posts/postsSlice";
-import Post from "../Post/Post";
+import Post from "../../components/Post/Post";
 
 type Props = {
     filteredPosts: RedditPost[]
@@ -9,8 +9,8 @@ const SortedPosts: React.FC<Props> = ({filteredPosts}) => {
     return (
         <ul>
             {
-                filteredPosts.map((post, index) => {
-                    return <Post post={post} key={index}/>
+                filteredPosts.map((post) => {
+                    return <Post post={post} key={post.id}/>
                 })
             }
         </ul>

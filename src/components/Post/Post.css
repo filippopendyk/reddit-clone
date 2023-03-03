@@ -1,0 +1,15 @@
+li{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+}
+
+.stats-container{
+    background-color: lightsteelblue;
+    width: 8%;
+}
+
+.content-container{
+    background-color: rgb(204, 209, 216);
+    width: 92%;
+}
