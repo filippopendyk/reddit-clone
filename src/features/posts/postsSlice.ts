@@ -8,6 +8,13 @@ type RedditApiResponse = {
                 created: number;
                 title: string;
                 id: number;
+                preview? : {
+                    images: {
+                        source: {
+                            url: string;
+                        }
+                    }[];
+                };
             }
         }[];
     }
@@ -18,6 +25,13 @@ export type RedditPost = {
     created: number;
     title: string;
     id: number;
+    preview? : {
+        images: {
+            source: {
+                 url: string;
+                }
+         }[]
+    } | undefined ;
 }
 
 type FetchPostsPayload = {

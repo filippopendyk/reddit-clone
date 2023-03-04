@@ -7,9 +7,13 @@ li{
 .stats-container{
     background-color: lightsteelblue;
     width: 8%;
+    display: flex;
+    justify-content: center;
+    padding: 0.25rem 0;
 }
 
 .content-container{
-    background-color: rgb(204, 209, 216);
+    background-color: rgb(243, 245, 247);
     width: 92%;
+    padding: 0.5rem 1rem;
 }

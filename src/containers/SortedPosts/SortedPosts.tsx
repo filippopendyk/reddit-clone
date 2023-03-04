@@ -6,11 +6,13 @@ type Props = {
 }
 
 const SortedPosts: React.FC<Props> = ({filteredPosts}) => {
+    console.log(filteredPosts);
+    
     return (
         <ul>
             {
                 filteredPosts.map((post) => {
-                    return <Post post={post} key={post.id}/>
+                    return <Post post={post} key={post.id} id={post.id} preview={post.preview} />
                 })
             }
         </ul>
