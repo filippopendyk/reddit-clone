@@ -8,13 +8,9 @@ type RedditApiResponse = {
                 created: number;
                 title: string;
                 id: number;
-                preview? : {
-                    images: {
-                        source: {
-                            url: string;
-                        }
-                    }[];
-                };
+                thumbnail: string;
+                author: string;
+                subreddit_name_prefixed: string;
             }
         }[];
     }
@@ -25,13 +21,9 @@ export type RedditPost = {
     created: number;
     title: string;
     id: number;
-    preview? : {
-        images: {
-            source: {
-                 url: string;
-                }
-         }[]
-    } | undefined ;
+    thumbnail: string;
+    author: string;
+    subreddit_name_prefixed: string;
 }
 
 type FetchPostsPayload = {

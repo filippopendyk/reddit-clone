@@ -8,12 +8,31 @@ li{
     background-color: lightsteelblue;
     width: 8%;
     display: flex;
-    justify-content: center;
-    padding: 0.25rem 0;
+    align-items: center;
+    padding: 1rem 0.25rem;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .content-container{
     background-color: rgb(243, 245, 247);
     width: 92%;
     padding: 0.5rem 1rem;
+    display: flex;
+}
+
+.text-container{
+    padding: 0 0.5rem;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.subreddit-name{
+    font-size: 0.85rem;
+}
+
+.author-time{
+    font-size: 0.75rem;
 }

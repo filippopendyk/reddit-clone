@@ -7,30 +7,30 @@ type Props = {
     post: RedditPost;
     key: number;
     id: number;
-    preview?: {
-        images: {
-            source: {
-                url: string;
-            }
-        }[]
-    } | undefined;
+    thumbnail: string;
+    author: string;
+    subreddit_name_prefixed: string;
 }
 
 const Post: React.FC<Props> = ({post}) => {
     let postViewsShortened = numeral(post.ups).format('0,0a');
-    let isPreviewPreset = post.preview?.images[0].source.url ? true : false;
-    let postPreview: string | undefined = post.preview?.images[0].source.url;
 
     return(
         <li>
             <div className="stats-container">
+                <FaAngleUp/>
                 <p>{(postViewsShortened).toString()}</p>
+                <FaAngleDown/>
             </div>
             <div className="content-container">
-                {post.title}
                 {
-                    isPreviewPreset ? <img src={postPreview} alt={post.title}/> : null
+                    post.thumbnail.includes('https://') && <img src={post.thumbnail} alt={post.title}/>
                 }
+                <article className="text-container">
+                    <p className="subreddit-name">{post.subreddit_name_prefixed}</p>
+                    <p className="author-time">Posted by {post.author} at {} </p>
+                    <p className="title">{post.title}</p>
+                </article>
             </div>
         </li>
     )
