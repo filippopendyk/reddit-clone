@@ -4,37 +4,36 @@ import { MemoryRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
 import store from './store';
 import { WrappedApp, App } from './App';
+import renderer from 'react-test-renderer';
+import { waitFor } from '@testing-library/react';
 
 describe('App', () => {
-    it('Renders Home category, if no category is provided', () => {
-        render(
-            <MemoryRouter initialEntries={['/']}>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
-            </MemoryRouter>
-        );
-
-        expect(
-            screen.getByRole('heading', {
-                level: 2,
-            })
-        ).toHaveTextContent('Home');
-    });
+    it('Renders without crashing', () => {
+        const tree = renderer
+        .create(<MemoryRouter initialEntries={['/']}>
+                    <Provider store={store}>
+                        <App/>
+                    </Provider>
+                </MemoryRouter>)
+        .toJSON();
+        expect(tree).toMatchSnapshot();
+    })
 
     it('Renders provided category', () => {
+        const redditCategory = 'example';
+
         render(
-            <MemoryRouter initialEntries={['/example']}>
+            <MemoryRouter initialEntries={[`/${redditCategory}`]}>
                 <Provider store={store}>
                     <App/>
                 </Provider>
             </MemoryRouter>
         );
-
-        expect(
-            screen.getByRole('heading', {
-                level: 2,
-            })
-        ).toHaveTextContent('example');
+        
+        waitFor(() => {
+            const categoryName = screen.findByText(`r/${redditCategory}`);
+            expect(categoryName).toBeInTheDocument();
+        })
+        
     });
 });

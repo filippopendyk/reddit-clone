@@ -1,11 +1,11 @@
 import moment from 'moment';
 
 export default function getTimeDifference(postTime: number): string{
-   const postTimestamp = postTime;
+   const postTimestampInSeconds = postTime;
    const date = new Date();
    const currentTimestamp = date.getTime();
-   const seconds = Math.floor(currentTimestamp / 1000);
-   const difference = seconds - postTimestamp;
+   const actualTimeInSeconds = Math.floor(currentTimestamp / 1000);
+   const difference = actualTimeInSeconds - postTimestampInSeconds;
    let output = '';
    if (difference < 60) {
     // Less than a minute has passed:

@@ -1,7 +1,9 @@
 // Vitest Snapshot v1
 
 exports[`Posts Container > Renders correctly 1`] = `
-<h4>
-  This is filter posts component
-</h4>
+<div
+  className="posts-container"
+>
+  <ul />
+</div>
 `;
