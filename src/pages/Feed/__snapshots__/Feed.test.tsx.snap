@@ -1,0 +1,35 @@
+// Vitest Snapshot v1
+
+exports[`Feed > Renders without crashing 1`] = `
+<main>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="filter-menu"
+    >
+      <button
+        className="activeFilter"
+        onClick={[Function]}
+      >
+        Best
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Top
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        New
+      </button>
+    </div>
+    <div
+      className="posts-container"
+    >
+      <ul />
+    </div>
+  </div>
+</main>
+`;
