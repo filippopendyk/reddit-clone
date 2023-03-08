@@ -2,9 +2,20 @@ import { screen, render, fireEvent} from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import SideBar from "./SideBar";
 import topCategories from "../../mocks/topCategoriesMock";
+import renderer from 'react-test-renderer';
 
 
 describe('SideBar', () => {
+    it('Renders without crashing', () => {
+        const tree = renderer
+        .create(
+            <MemoryRouter>
+                <SideBar topCategories={topCategories} isLoading={false} error={null}/>
+            </MemoryRouter>   
+        )
+        .toJSON();
+        expect(tree).toMatchSnapshot();
+    })
     it('Renders the SideBar component', () => {
         render(
         <MemoryRouter>

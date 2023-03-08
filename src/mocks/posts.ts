@@ -8,6 +8,7 @@ const posts = [
         subreddit_name_prefixed: 'r/example',
         thumbnail: '',
         upvote_ratio: 0.97,
+        selftext: 'siemano'
     },
     {
         ups: 2137,
@@ -18,6 +19,7 @@ const posts = [
         subreddit_name_prefixed: 'r/2137',
         thumbnail: 'https://i.redd.it/ccskoy6lvx881.jpg',
         upvote_ratio: 0.96,
+        selftext: 'eluwina'
     }
 ]
 

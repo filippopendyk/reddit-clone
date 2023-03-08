@@ -71,6 +71,11 @@ exports[`PostsSorting > Renders without crashing 1`] = `
         >
           example
         </p>
+        <p
+          className="selftext"
+        >
+          siemano
+        </p>
       </article>
     </div>
   </li>
@@ -139,13 +144,18 @@ exports[`PostsSorting > Renders without crashing 1`] = `
           Posted by 
           wykop.pl
            
-          -19693870838 seconds ago
+          -19693863925 seconds ago
            
         </p>
         <p
           className="title"
         >
           2137
+        </p>
+        <p
+          className="selftext"
+        >
+          eluwina
         </p>
       </article>
     </div>

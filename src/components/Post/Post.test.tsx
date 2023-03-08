@@ -15,7 +15,7 @@ describe('Post', () => {
         const tree = renderer
         .create(
             <Provider store={store}>
-                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed}/>
+                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={''}/>
             </Provider>
         )
         .toJSON();
@@ -25,7 +25,7 @@ describe('Post', () => {
         const exampleRedditPost = posts[0];
         render(
             <Provider store={store}>
-                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed}/>
+                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
             </Provider>
         );
     
@@ -37,5 +37,8 @@ describe('Post', () => {
 
         const title = screen.getByText(exampleRedditPost.title);
         expect(title).toBeInTheDocument();
+
+        const postSelfText = screen.getByText(exampleRedditPost.selftext);
+        expect(postSelfText).toBeInTheDocument();
     })
 });

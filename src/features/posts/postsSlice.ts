@@ -11,6 +11,7 @@ type RedditApiResponse = {
                 thumbnail: string;
                 author: string;
                 subreddit_name_prefixed: string;
+                selftext: string;
             }
         }[];
     }
@@ -24,6 +25,7 @@ export type RedditPost = {
     thumbnail: string;
     author: string;
     subreddit_name_prefixed: string;
+    selftext: string;
 }
 
 type FetchPostsPayload = {

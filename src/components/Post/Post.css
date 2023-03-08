@@ -27,6 +27,7 @@ li{
 
 .title{
     font-weight: bold;
+    font-size: 1.15rem;
 }
 
 .subreddit-name{
@@ -35,4 +36,9 @@ li{
 
 .author-time{
     font-size: 0.75rem;
+}
+
+.selftext{
+    word-break: break-all;
+    font-size: 0.95rem;
 }
