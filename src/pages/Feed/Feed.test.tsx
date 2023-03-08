@@ -13,4 +13,5 @@ describe('Feed', () => {
         .toJSON();
         expect(tree).toMatchSnapshot();
     })
+
 })
