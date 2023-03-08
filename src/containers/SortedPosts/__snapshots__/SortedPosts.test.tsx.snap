@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`PostsSorting > Renders without crashing 1`] = `
+exports[`SortedPosts > Renders without crashing 1`] = `
 <ul>
   <li>
     <div
@@ -139,7 +139,7 @@ exports[`PostsSorting > Renders without crashing 1`] = `
           Posted by 
           wykop.pl
            
-          -19693874727 seconds ago
+          -19693874483 seconds ago
            
         </p>
         <p
