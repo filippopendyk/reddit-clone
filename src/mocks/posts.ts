@@ -7,15 +7,17 @@ const posts = [
         author: 'filip popendyk',
         subreddit_name_prefixed: 'r/example',
         thumbnail: '',
+        upvote_ratio: 0.97,
     },
     {
         ups: 2137,
-        created: 21372137,
+        created: 21372134337,
         title: '2137',
         id: 2137,
         author: 'wykop.pl',
         subreddit_name_prefixed: 'r/2137',
         thumbnail: 'https://i.redd.it/ccskoy6lvx881.jpg',
+        upvote_ratio: 0.96,
     }
 ]
 
