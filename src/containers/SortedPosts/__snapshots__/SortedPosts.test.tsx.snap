@@ -49,6 +49,10 @@ exports[`SortedPosts > Renders without crashing 1`] = `
     <div
       className="content-container"
     >
+      <img
+        alt="example"
+        src="https://i.redd.it/ccskoy6lvx881.jpg"
+      />
       <article
         className="text-container"
       >
@@ -73,6 +77,7 @@ exports[`SortedPosts > Renders without crashing 1`] = `
         </p>
         <p
           className="selftext"
+          data-testid="selftext"
         >
           siemano
         </p>
@@ -126,10 +131,6 @@ exports[`SortedPosts > Renders without crashing 1`] = `
     <div
       className="content-container"
     >
-      <img
-        alt="2137"
-        src="https://i.redd.it/ccskoy6lvx881.jpg"
-      />
       <article
         className="text-container"
       >
@@ -144,18 +145,13 @@ exports[`SortedPosts > Renders without crashing 1`] = `
           Posted by 
           wykop.pl
            
-          -19693863925 seconds ago
+          -19693860359 seconds ago
            
         </p>
         <p
           className="title"
         >
           2137
-        </p>
-        <p
-          className="selftext"
-        >
-          eluwina
         </p>
       </article>
     </div>

@@ -15,13 +15,13 @@ describe('Post', () => {
         const tree = renderer
         .create(
             <Provider store={store}>
-                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={''}/>
+                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
             </Provider>
         )
         .toJSON();
         expect(tree).toMatchSnapshot();
     })
-    it('Renders post with provided content', () => {
+    it('Renders post with provided content including thumbnail and selftext', () => {
         const exampleRedditPost = posts[0];
         render(
             <Provider store={store}>
@@ -40,5 +40,29 @@ describe('Post', () => {
 
         const postSelfText = screen.getByText(exampleRedditPost.selftext);
         expect(postSelfText).toBeInTheDocument();
+
+        const selftextByTestId = screen.getByTestId('selftext');
+        expect(selftextByTestId).toBeInTheDocument();
+
+        const thumbnail = screen.getByRole('img');
+        expect(thumbnail).toBeInTheDocument();
+
+        const thumbnailByAltText = screen.getByAltText(exampleRedditPost.title);
+        expect(thumbnailByAltText).toBeInTheDocument();
+    })
+
+    it('Correctly skips rendering the selfttext and thumbnail if no is provided', () => {
+        const exampleRedditPost = posts[1];
+        render(
+            <Provider store={store}>
+                <Post post={exampleRedditPost} key={exampleRedditPost.id} author={exampleRedditPost.author} id={exampleRedditPost.id} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
+            </Provider>
+        )
+        
+        const thumbnail = screen.queryByRole('img');
+        expect(thumbnail).not.toBeInTheDocument();
+
+        const selftext = screen.queryByTestId('selftext')
+        expect(selftext).not.toBeInTheDocument();
     })
 });

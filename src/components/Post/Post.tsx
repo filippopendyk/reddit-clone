@@ -33,7 +33,9 @@ const Post: React.FC<Props> = ({post}) => {
                     <p className="subreddit-name">{post.subreddit_name_prefixed}</p>
                     <p className="author-time">Posted by {post.author} {(getTimeDifference(post.created))} </p>
                     <p className="title">{post.title}</p>
-                    <p className="selftext">{post.selftext.length > 0 ? post.selftext : null}</p>
+                    {
+                        post.selftext.length > 0 ? <p data-testid='selftext' className="selftext">{post.selftext}</p> : null
+                    }
                 </article>
             </div>
         </li>

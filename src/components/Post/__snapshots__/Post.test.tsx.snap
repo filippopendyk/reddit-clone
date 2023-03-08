@@ -48,6 +48,10 @@ exports[`Post > Renders without crashing 1`] = `
   <div
     className="content-container"
   >
+    <img
+      alt="example"
+      src="https://i.redd.it/ccskoy6lvx881.jpg"
+    />
     <article
       className="text-container"
     >
@@ -72,6 +76,7 @@ exports[`Post > Renders without crashing 1`] = `
       </p>
       <p
         className="selftext"
+        data-testid="selftext"
       >
         siemano
       </p>

@@ -6,7 +6,7 @@ const posts = [
         id: 123,
         author: 'filip popendyk',
         subreddit_name_prefixed: 'r/example',
-        thumbnail: '',
+        thumbnail: 'https://i.redd.it/ccskoy6lvx881.jpg',
         upvote_ratio: 0.97,
         selftext: 'siemano'
     },
@@ -17,9 +17,9 @@ const posts = [
         id: 2137,
         author: 'wykop.pl',
         subreddit_name_prefixed: 'r/2137',
-        thumbnail: 'https://i.redd.it/ccskoy6lvx881.jpg',
+        thumbnail: '',
         upvote_ratio: 0.96,
-        selftext: 'eluwina'
+        selftext: ''
     }
 ]
 
