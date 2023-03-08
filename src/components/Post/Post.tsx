@@ -4,6 +4,7 @@ import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import numeral from "numeral";
 import getTimeDifference from "../../utils/getTimeDifference";
 import * as moment from "moment";
+import formatUps from "../../utils/formatUps";
 
 type Props = {
     post: RedditPost;
@@ -15,13 +16,12 @@ type Props = {
 }
 
 const Post: React.FC<Props> = ({post}) => {
-    let postViewsShortened = numeral(post.ups).format('0,0a');
 
     return(
         <li>
             <div className="stats-container">
                 <FaAngleUp/>
-                <p>{(postViewsShortened).toString()}</p>
+                <p>{formatUps(post.ups)}</p>
                 <FaAngleDown/>
             </div>
             <div className="content-container">
