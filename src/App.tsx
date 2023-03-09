@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
 import Error from './pages/Error/Error';
-import Post from './pages/Post/Post';
+import Post from './pages/PostPage/PostPage';
 import Feed from './pages/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
 import './App.css';
@@ -25,9 +25,10 @@ export function App() {
         <SideBar topCategories={topCategories} isLoading={isLoading} error={error}/>
         <Routes>
           <Route index element={<Feed/>}/>
-          <Route path=':category' element={<Feed/>}>
-            <Route path='post' element={<Post/>}/>
-          </Route>
+          <Route path=':category' element={<Feed/>}/>
+          <Route path='post'>
+              <Route path=':postId' element={<Post/>}/>
+            </Route>
           <Route path='*' element={<Error/>}/>
         </Routes>
       </div>
