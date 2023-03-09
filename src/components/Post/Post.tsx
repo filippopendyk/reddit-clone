@@ -5,6 +5,7 @@ import numeral from "numeral";
 import getTimeDifference from "../../utils/getTimeDifference";
 import * as moment from "moment";
 import formatUps from "../../utils/formatUps";
+import getActualTimeInSeconds from "../../utils/getActualTime";
 
 type Props = {
     post: RedditPost;
@@ -31,7 +32,7 @@ const Post: React.FC<Props> = ({post}) => {
                 }
                 <article className="text-container">
                     <p className="subreddit-name">{post.subreddit_name_prefixed}</p>
-                    <p className="author-time">Posted by {post.author} {(getTimeDifference(post.created))} </p>
+                    <p className="author-time">Posted by {post.author} {(getTimeDifference(post.created, getActualTimeInSeconds()))} </p>
                     <p className="title">{post.title}</p>
                     {
                         post.selftext.length > 0 ? <p data-testid='selftext' className="selftext">{post.selftext}</p> : null

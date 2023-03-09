@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import posts from "../../mocks/posts";
 import getTimeDifference from "../../utils/getTimeDifference";
+import getActualTimeInSeconds from "../../utils/getActualTime";
 
 describe('Posts Container', () => {
     it('Renders correctly', () => {
@@ -55,7 +56,7 @@ describe('Posts Container', () => {
         posts.forEach((post) => {
             const title = screen.getByText(post.title);
             const subredditName = screen.getByText(post.subreddit_name_prefixed);
-            const author = screen.getByText(`Posted by ${post.author} ${getTimeDifference(post.created)}`);
+            const author = screen.getByText(`Posted by ${post.author} ${getTimeDifference(post.created, getActualTimeInSeconds())}`);
 
             expect(title).toBeInTheDocument();
             expect(subredditName).toBeInTheDocument();
