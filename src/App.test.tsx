@@ -37,7 +37,7 @@ describe('App', () => {
                   strokeWidth="0"
                   style={
                     {
-                      "color": undefined,
+                      "color": "#fff",
                     }
                   }
                   viewBox="0 0 448 512"
@@ -81,7 +81,7 @@ describe('App', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 1024 1024"

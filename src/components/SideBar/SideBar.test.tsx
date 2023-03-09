@@ -33,7 +33,7 @@ describe('SideBar', () => {
                   strokeWidth="0"
                   style={
                     {
-                      "color": undefined,
+                      "color": "#fff",
                     }
                   }
                   viewBox="0 0 448 512"
@@ -77,7 +77,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 1024 1024"
@@ -121,7 +121,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 24 24"
@@ -152,7 +152,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 24 24"
@@ -183,7 +183,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 24 24"
@@ -214,7 +214,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 24 24"
@@ -245,7 +245,7 @@ describe('SideBar', () => {
                       strokeWidth="0"
                       style={
                         {
-                          "color": undefined,
+                          "color": "#fff",
                         }
                       }
                       viewBox="0 0 24 24"
