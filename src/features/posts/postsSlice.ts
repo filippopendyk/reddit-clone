@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type RedditApiResponse = {
+export type RedditApiResponse = {
     data: {
         children: {
             data: {
