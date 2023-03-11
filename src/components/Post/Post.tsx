@@ -7,6 +7,9 @@ import * as moment from "moment";
 import formatUps from "../../utils/formatUps";
 import getActualTimeInSeconds from "../../utils/getActualTime";
 import { useAppDispatch } from "../../hooks";
+import { setCurrentCategoryAs } from "../../features/currentSubreddit/currentSubredditSlice";
+import { setCurrentPostIdAs } from "../../features/currentPostId/currentPostIdSlice";
+import { MouseEventHandler } from "react";
 
 type Props = {
     post: RedditPost;
@@ -21,9 +24,12 @@ type Props = {
 const Post: React.FC<Props> = ({post}) => {
 
     const dispatch = useAppDispatch();
+    const currentSubreddit: string = post.subreddit_name_prefixed.substring(2);
 
-    const handlePostClick = (): void => {
-        dispatch(set)
+    const handlePostClick: MouseEventHandler<HTMLParagraphElement> = (event) => {
+        event.preventDefault();
+        dispatch(setCurrentCategoryAs(currentSubreddit));
+        dispatch(setCurrentPostIdAs(post.id));
     }
 
     return(
@@ -41,7 +47,7 @@ const Post: React.FC<Props> = ({post}) => {
                     <p className="subreddit-name">{post.subreddit_name_prefixed}</p>
                     <p className="author-time">Posted by {post.author} {(getTimeDifference(post.created, getActualTimeInSeconds()))} </p>
                     <p className="title"
-                        onClick={}
+                        onClick={handlePostClick}
                     >{post.title}</p>
                     {
                         post.selftext.length > 0 ? <p data-testid='selftext' className="selftext">{post.selftext}</p> : null
