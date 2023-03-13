@@ -29,7 +29,7 @@ export const fetchPost = createAsyncThunk<FetchPostPayload, FetchPostArguments>(
   "post/fetchPost",
   async ({ postId, subreddit }, thunkApi) => {
     try {
-      const url: string = `https://www.reddit.com/r/${subreddit}/comments/${postId}.json`;
+      const url: string = `https://www.reddit.com/r${subreddit}/comments/${postId}.json`;
       const accessToken = await getAccessToken();
       const headers = { Authorization: `Bearer ${accessToken}` };
       const post = await axios.get(url, { headers }).then((response) => {

@@ -2,8 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { postsSliceReducer } from "./features/posts/postsSlice";
 import { fetchMostPopularCategories, topCategoriesReducer } from "./features/topCategories/topCategoriesSlice";
 import { filterSliceReducer } from "./features/filter/filterSlice";
-import { currentSubredditReducer } from "./features/currentSubreddit/currentSubredditSlice";
-import { currentPostIdReducer } from "./features/currentPostId/currentPostIdSlice";
 
 const store = configureStore({
     reducer: {
@@ -11,8 +9,6 @@ const store = configureStore({
         posts: postsSliceReducer,
         filter: filterSliceReducer,
         post: postsSliceReducer,
-        currentSubreddit: currentSubredditReducer,
-        currentPostId: currentPostIdReducer
     },
 });
 

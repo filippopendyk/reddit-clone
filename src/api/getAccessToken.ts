@@ -29,6 +29,7 @@ async function getAccessToken() {
     accessToken = token;
     console.log(accessToken);
     return accessToken;
+    console.log(token);
 }
 
 export default getAccessToken;
