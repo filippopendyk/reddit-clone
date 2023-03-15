@@ -1,0 +1,16 @@
+.back-button{
+    background-color: #4864F5;
+    width: 30%;
+    padding: 0.75rem;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0;
+}
+
+.button-container{
+    background-color: rgb(243, 245, 247);
+}

@@ -28,7 +28,7 @@ export function App() {
           <Route path=':category' element={<Feed/>}/>
           <Route path='post'>
               <Route path=':postId' element={<Post/>}/>
-            </Route>
+          </Route>
           <Route path='*' element={<Error/>}/>
         </Routes>
       </div>

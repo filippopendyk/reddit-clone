@@ -6,7 +6,6 @@ import Posts from "../../containers/Posts/Posts";
 import { useAppSelector } from "../../hooks";
 import FilterMenu from "../../components/FilterMenu/FilterMenu";
 import './Feed.css';
-import { deleteTheCurrentPost } from "../../features/post/postSlice";
 
 const Feed: React.FC = () => {
     let { category } = useParams();
@@ -18,7 +17,6 @@ const Feed: React.FC = () => {
         let topic = category ? category : 'all';
 
         dispatch(fetchPosts(topic));
-        dispatch(deleteTheCurrentPost());
     },[category]);
 
     return (

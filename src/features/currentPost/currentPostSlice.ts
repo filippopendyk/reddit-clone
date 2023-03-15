@@ -3,7 +3,7 @@ import { RedditPost } from "../posts/postsSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 type CurrentPostSlice = {
-    currentPost: RedditPost | {};
+    currentPost: RedditPost | undefined;
 }
 
 type SetCurrentPostAsPayload = {
@@ -11,19 +11,23 @@ type SetCurrentPostAsPayload = {
 }
 
 const initialState: CurrentPostSlice = {
-    currentPost: {}
+    currentPost: undefined,
 };
 
 
-const currentPostSlice = ({
+const currentPostSlice = createSlice({
     name: 'currentPost',
     initialState,
     reducers: {
-        resetCurrentPost(state: any){
-            state.currentPost = null;
+        resetCurrentPost(state){
+            state.currentPost = undefined;
         },
-        setCurrentPostAs(state: any, action: PayloadAction<SetCurrentPostAsPayload>){
-            state.currentPost = action.payload;
+        setCurrentPostAs(state, action: PayloadAction<SetCurrentPostAsPayload>){
+            state.currentPost = action.payload.currentPost;
         }
     }
-})
+});
+
+export const { resetCurrentPost, setCurrentPostAs } = currentPostSlice.actions;
+
+export const { reducer: currentPostSliceReducer } = currentPostSlice;

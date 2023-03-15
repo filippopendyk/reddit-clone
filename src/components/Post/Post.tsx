@@ -6,10 +6,11 @@ import getTimeDifference from "../../utils/getTimeDifference";
 import * as moment from "moment";
 import formatUps from "../../utils/formatUps";
 import getActualTimeInSeconds from "../../utils/getActualTime";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { MouseEventHandler } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { resetCurrentPost, setCurrentPostAs } from "../../features/currentPost/currentPostSlice";
 
 type Props = {
     post: RedditPost;
@@ -22,13 +23,15 @@ type Props = {
 }
 
 const Post: React.FC<Props> = ({post}) => {
-    
+
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const currentSubreddit: string = post.subreddit_name_prefixed.substring(2);
-
     const handlePostClick: MouseEventHandler<HTMLParagraphElement> = (event) => {
         event.preventDefault();
+        dispatch(resetCurrentPost());
+        dispatch(setCurrentPostAs({
+            currentPost: post
+        }))
         navigate('/post/'+post.id);
     }
 

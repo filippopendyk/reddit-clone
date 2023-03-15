@@ -7,7 +7,7 @@ export type RedditApiResponse = {
                 ups: number;
                 created: number;
                 title: string;
-                id: number;
+                id: string;
                 thumbnail: string;
                 author: string;
                 subreddit_name_prefixed: string;
@@ -21,7 +21,7 @@ export type RedditPost = {
     ups: number;
     created: number;
     title: string;
-    id: number;
+    id: string;
     thumbnail: string;
     author: string;
     subreddit_name_prefixed: string;

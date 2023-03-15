@@ -2,13 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { postsSliceReducer } from "./features/posts/postsSlice";
 import { fetchMostPopularCategories, topCategoriesReducer } from "./features/topCategories/topCategoriesSlice";
 import { filterSliceReducer } from "./features/filter/filterSlice";
+import { currentPostSliceReducer } from "./features/currentPost/currentPostSlice";
 
 const store = configureStore({
     reducer: {
         topCategories: topCategoriesReducer,
         posts: postsSliceReducer,
         filter: filterSliceReducer,
-        post: postsSliceReducer,
+        currentPost: currentPostSliceReducer
     },
 });
 

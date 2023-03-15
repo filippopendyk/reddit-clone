@@ -1,19 +1,23 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import getAccessToken from "../../api/getAccessToken";
-import { deleteTheCurrentPost, fetchPost } from "../../features/post/postSlice";
+import { RedditPost } from "../../features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-// import { accessToken } from "../../api/getAccessToken";
+import selectPostById from "../../utils/selectPostById";
+import './PostPage.css';
+import BackButton from "../../components/BackButton/BackButton";
 
 const Post: React.FC = () => {
-   const dispatch = useAppDispatch();
-   
-   useEffect(() => {
-      getAccessToken();
-      dispatch(deleteTheCurrentPost());
-   },[])
+   const currentPost = useAppSelector((state) => state.currentPost.currentPost);
 
-   return <h2>dupa</h2>
+   return (
+      <main>
+         <div className="wrapper">
+            <BackButton/>
+            <p>Eluwina</p>
+         </div>
+      </main>
+   )
 }
 
 export default Post;
