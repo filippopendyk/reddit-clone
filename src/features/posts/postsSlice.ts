@@ -12,6 +12,13 @@ export type RedditApiResponse = {
                 author: string;
                 subreddit_name_prefixed: string;
                 selftext: string;
+                preview: {
+                    images: {
+                        source: {
+                            url: string;
+                        }
+                    }[]
+                } | undefined;
             }
         }[];
     }
@@ -26,6 +33,13 @@ export type RedditPost = {
     author: string;
     subreddit_name_prefixed: string;
     selftext: string;
+    preview: {
+        images: {
+            source: {
+                url: string;
+            }
+        }[]
+    } | undefined;
 }
 
 type FetchPostsPayload = {

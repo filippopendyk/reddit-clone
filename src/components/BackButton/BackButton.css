@@ -1,14 +1,15 @@
 .back-button{
     background-color: #4864F5;
-    width: 30%;
+    width: 33.3%;
     padding: 0.75rem;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: bold;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     border: 0;
+    flex-grow: 1;
 }
 
 .button-container{
