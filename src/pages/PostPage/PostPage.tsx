@@ -11,6 +11,7 @@ import formatUps from "../../utils/formatUps";
 import getProperlyFormattedPreviewUrl from "../../utils/getProperlyFormattedPreviewUrl";
 import getTimeDifference from "../../utils/getTimeDifference";
 import getActualTimeInSeconds from "../../utils/getActualTime";
+import PostContentContainer from "../../components/PostContentContainer/PostContentContainer";
 
 const Post: React.FC = () => {
    const currentPost = useAppSelector((state) => state.currentPost.currentPost);
@@ -19,22 +20,9 @@ const Post: React.FC = () => {
       <main>
          <div className="wrapper">
             <BackButton/>
-            <div className="post-container">
-               <div className="stats-container">
-                  <FaAngleUp/>
-                  {currentPost?.ups && <p>{formatUps(currentPost.ups)}</p>}
-                  <FaAngleDown/>
-               </div>
-               <div className="post-content-container">
-                  <p className="subreddit-name">{currentPost?.subreddit_name_prefixed}</p>
-                  <p className="author-time">Posted by {currentPost?.author} {currentPost?.created ? getTimeDifference(currentPost.created, getActualTimeInSeconds()) : null}</p>
-                  <p className="title">{currentPost?.title}</p>
-                  {
-                     currentPost?.preview?.images[0].source.url.includes('https://') && <img className='post-img' src={getProperlyFormattedPreviewUrl(currentPost.preview.images[0].source.url)} alt={currentPost.title}/>
-                  }
-                  <p className="selftext">{currentPost?.selftext}</p>
-               </div>
-            </div>
+            {
+               currentPost ? <PostContentContainer post={currentPost}/> : 'Unable to load post, try again.'
+            }
          </div>
       </main>
    )
