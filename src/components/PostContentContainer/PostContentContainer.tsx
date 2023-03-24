@@ -5,7 +5,6 @@ import getProperlyFormattedPreviewUrl from "../../utils/getProperlyFormattedPrev
 import formatUps from "../../utils/formatUps";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import './PostContentContainer.css';
-import PostCommentsProvider from "../../containers/PostCommentsProvider/PostCommentsProvider";
 
 type Props = {
     post: RedditPost;
@@ -26,7 +25,6 @@ const PostContentContainer: React.FC<Props> = ({post}) => {
           post.preview?.images[0].source.url.includes('https://') && <img className='post-img' src={getProperlyFormattedPreviewUrl(post.preview.images[0].source.url)} alt={post.title}/>
        }
        <p className="selftext">{post.selftext}</p>
-       <PostCommentsProvider/>
     </div>
  </div>
 }

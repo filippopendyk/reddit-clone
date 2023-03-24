@@ -9,7 +9,7 @@ const store = configureStore({
         topCategories: topCategoriesReducer,
         posts: postsSliceReducer,
         filter: filterSliceReducer,
-        currentPost: currentPostSliceReducer
+        currentPost: currentPostSliceReducer,
     },
 });
 
