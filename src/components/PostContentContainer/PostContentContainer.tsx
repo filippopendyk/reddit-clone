@@ -24,7 +24,9 @@ const PostContentContainer: React.FC<Props> = ({post}) => {
        {
           post.preview?.images[0].source.url.includes('https://') && <img className='post-img' src={getProperlyFormattedPreviewUrl(post.preview.images[0].source.url)} alt={post.title}/>
        }
-       <p className="selftext">{post.selftext}</p>
+       {
+         post.selftext ? <p className="selftext">{post.selftext}</p> : null
+       }
     </div>
  </div>
 }

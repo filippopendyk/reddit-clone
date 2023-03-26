@@ -5,15 +5,18 @@ import store from "../../store";
 import posts from "../../mocks/posts";
 import { render } from "@testing-library/react";
 import { RedditPost } from "../../features/posts/postsSlice";
+import { MemoryRouter } from "react-router-dom";
 
 describe('PostsSorting', () => {
     it('Renders without crashing', () => {
         const filter = 'best';
         const tree = renderer
         .create(
-            <Provider store={store}>
-                <PostsSorting posts={posts} filter={filter}/>
-            </Provider>
+            <MemoryRouter>
+                <Provider store={store}>
+                    <PostsSorting posts={posts} filter={filter}/>
+                </Provider>
+            </MemoryRouter>
         )
         .toJSON();
         expect(tree).toMatchSnapshot();

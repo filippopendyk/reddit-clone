@@ -12,9 +12,11 @@ describe('Posts Container', () => {
     it('Renders correctly', () => {
         const tree = renderer
         .create(
-            <Provider store={store}>
-                <Posts isLoading={false} error={null} data={[]}/>
-            </Provider>
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Posts isLoading={false} error={null} data={[]}/>
+                </Provider>
+            </MemoryRouter>
         )
         .toJSON();
         expect(tree).toMatchSnapshot();
@@ -22,9 +24,11 @@ describe('Posts Container', () => {
 
     it('Renders the loading component while loading the posts', () => {
         render(
-            <Provider store={store}>
-                <Posts isLoading={true} error={null} data={[]}/>
-            </Provider>
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Posts isLoading={true} error={null} data={[]}/>
+                </Provider>
+            </MemoryRouter>
         )
         const heading = screen.getByRole('heading', {level: 3});
         expect(heading).toHaveTextContent('Loading posts...');
@@ -34,9 +38,11 @@ describe('Posts Container', () => {
         const errorMessage = 'network error';
         
         render(
-            <Provider store={store}>
-                <Posts isLoading={false} error={errorMessage} data={[]}/>
-            </Provider>
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Posts isLoading={false} error={errorMessage} data={[]}/>
+                </Provider>
+            </MemoryRouter>
         )
         
         const heading = screen.getByRole('heading', {level: 3});
@@ -48,9 +54,11 @@ describe('Posts Container', () => {
 
     it('Renders the posts when no error encountered, and posts correctly fetched', () => {
         render(
-            <Provider store={store}>
-                <Posts isLoading={false} error={null} data={posts}/>
-            </Provider>
+            <MemoryRouter>
+                <Provider store={store}>
+                    <Posts isLoading={false} error={null} data={posts}/>
+                </Provider>
+            </MemoryRouter>
         );
 
         posts.forEach((post) => {
