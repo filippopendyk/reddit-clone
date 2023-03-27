@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { useAppSelector } from './hooks';
 import capitalizeWords from './utils/capitalizeWords';
+import { PersistGate } from 'redux-persist/integration/react';
+import persistStore from 'redux-persist/es/persistStore';
 
 
 export function App() {
@@ -36,10 +38,14 @@ export function App() {
 };
 
 export function WrappedApp(){
+  let persistor = persistStore(store);
+  
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <App/>
+        <PersistGate persistor={persistor}>
+          <App/>
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   )
