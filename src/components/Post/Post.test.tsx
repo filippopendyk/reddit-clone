@@ -18,7 +18,7 @@ describe('Post', () => {
         .create(
             <MemoryRouter>
                 <Provider store={store}>
-                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={123} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
+                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={'123'} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
                 </Provider>
             </MemoryRouter>
         )
@@ -30,7 +30,7 @@ describe('Post', () => {
         render(
             <MemoryRouter>
                 <Provider store={store}>
-                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={123} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
+                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={'123'} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
                 </Provider>
             </MemoryRouter>
         );
@@ -62,7 +62,7 @@ describe('Post', () => {
         render(
             <MemoryRouter>
                 <Provider store={store}>
-                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={123} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
+                    <Post post={exampleRedditPost} key={123} author={exampleRedditPost.author} id={'123'} thumbnail={exampleRedditPost.thumbnail} subreddit_name_prefixed={exampleRedditPost.subreddit_name_prefixed} selftext={exampleRedditPost.selftext}/>
                 </Provider>
             </MemoryRouter>
         )
