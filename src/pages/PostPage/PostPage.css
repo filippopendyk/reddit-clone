@@ -1,4 +1,8 @@
 .wrapper{
-    width: 100%;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.title:hover{
+    color: #4864F5;
 }

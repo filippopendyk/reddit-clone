@@ -12,6 +12,7 @@ export type RedditApiResponse = {
                 author: string;
                 subreddit_name_prefixed: string;
                 selftext: string;
+                permalink: string;
                 preview: {
                     images: {
                         source: {
@@ -33,6 +34,7 @@ export type RedditPost = {
     author: string;
     subreddit_name_prefixed: string;
     selftext: string;
+    permalink: string;
     preview: {
         images: {
             source: {
