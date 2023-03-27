@@ -11,8 +11,8 @@ const SortedPosts: React.FC<Props> = ({filteredPosts}) => {
     return (
         <ul>
             {
-                filteredPosts.map((post) => {
-                    return <Post post={post} key={post.id} id={post.id} author={post.author} thumbnail={post.thumbnail} subreddit_name_prefixed={post.subreddit_name_prefixed} selftext={post.selftext}/>
+                filteredPosts.map((post, index) => {
+                    return <Post post={post} key={index} id={post.id} author={post.author} thumbnail={post.thumbnail} subreddit_name_prefixed={post.subreddit_name_prefixed} selftext={post.selftext}/>
                 })
             }
         </ul>

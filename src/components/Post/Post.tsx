@@ -15,7 +15,7 @@ import { resetCurrentPost, setCurrentPostAs } from "../../features/currentPost/c
 type Props = {
     post: RedditPost;
     key: number;
-    id: number;
+    id: string;
     thumbnail: string;
     author: string;
     subreddit_name_prefixed: string;
