@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`ErrorComp > Renders without crashing 1`] = `
+[
+  <h3>
+    Error while loading posts! Try again!
+  </h3>,
+  <p>
+    Reason: 
+    network error
+  </p>,
+]
+`;

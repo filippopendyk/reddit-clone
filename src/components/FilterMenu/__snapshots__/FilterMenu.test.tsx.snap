@@ -1,0 +1,24 @@
+// Vitest Snapshot v1
+
+exports[`FilterMenu > Renders without crashing 1`] = `
+<div
+  className="filter-menu"
+>
+  <button
+    className="activeFilter"
+    onClick={[Function]}
+  >
+    Best
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Top
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    New
+  </button>
+</div>
+`;

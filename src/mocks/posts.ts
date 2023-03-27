@@ -18,6 +18,7 @@ const posts = [
                 }
             }]
         },
+        permalink: 'https://reddit.com',
     },
     {
         ups: 2137,
@@ -36,6 +37,7 @@ const posts = [
                 }
             }]
         },
+        permalink: 'https://reddit.com',
     }
 ]
 

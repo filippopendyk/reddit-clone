@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`LoadingComp > Renders without crashing 1`] = `
+<h3>
+  Loading posts...
+</h3>
+`;
